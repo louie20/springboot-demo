@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-demo
+  labels:
+    app: springboot-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-demo
+  template:
+    metadata:
+      labels:
+        app: springboot-demo
+    spec:
+      containers:
+      - name: springboot-demo
+        image: registry.653347891412.dkr.ecr.cn-northwest-1.amazonaws.com.cn/tw-test:$IMAGE_TAG
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /healthz
+            scheme: HTTP
+          periodSeconds: 15
+          initialDelaySeconds: 30
