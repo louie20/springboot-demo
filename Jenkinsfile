@@ -6,7 +6,7 @@ node('master') {
     sh 'tar -zcvf hello.tar.gz *';   
   } 
   stage ('Publish'){
-    def server = Artifactory.server 'Default Artifactory server'
+    def server = Artifactory.server 'Defalut Artifactory servers'
     def uploadSpec = """{
       "files": [
         {
