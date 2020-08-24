@@ -11,7 +11,7 @@ node('master') {
       "files": [
         {
           "pattern": "hello.tar.gz",
-          "target": "hello.tar.gz",
+          "target": "maven-private/${BUILD_NUMBER}/",
           "props": "bulid=Yes"
         }
       ]
