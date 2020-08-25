@@ -1,5 +1,5 @@
 node('master') {
-  stage('Poll') {
+  stage('Clone') {
     checkout scm
   }
   stage ('bulid'){
